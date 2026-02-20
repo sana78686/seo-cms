@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <x-seo:meta :model="$post" />
+    <x-seo:meta :model="$page" />
 
     @if (file_exists(public_path('build/manifest.json')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -13,14 +13,9 @@
 <body class="min-h-screen bg-base-200 p-4 md:p-8">
 
 <div class="max-w-3xl mx-auto">
-    <div class="flex items-center justify-between gap-4 mb-6">
-        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-600 hover:text-gray-900">← Dashboard</a>
-        <a href="{{ route('dashboard.posts.edit-seo', $post) }}" class="text-sm text-gray-600 hover:text-gray-900">Edit SEO</a>
-    </div>
-
     <article class="bg-base-100 rounded-lg shadow p-6 md:p-8">
-        <h1 class="text-3xl font-bold text-gray-900">{{ $post->title }}</h1>
-        <div class="mt-4 text-gray-700 prose prose-gray max-w-none">{!! $post->content !!}</div>
+        <h1 class="text-3xl font-bold text-gray-900">{{ $page->title }}</h1>
+        <div class="mt-4 text-gray-700 prose prose-gray max-w-none">{!! $page->content !!}</div>
     </article>
 </div>
 
