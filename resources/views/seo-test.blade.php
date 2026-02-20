@@ -16,10 +16,11 @@
 <div class="max-w-6xl mx-auto space-y-8">
     <div class="flex items-center gap-4">
         <a href="{{ url('/posts') }}" class="text-sm text-gray-600 hover:text-gray-900">← All posts</a>
+        <a href="{{ route('posts.show', $post) }}" class="btn btn-ghost btn-sm">View post</a>
     </div>
     <div>
         <h1 class="text-2xl font-bold text-gray-900">{{ $post->title }}</h1>
-        <p class="mt-2 text-gray-600">{{ $post->content }}</p>
+        <div class="mt-2 text-gray-600 prose prose-gray max-w-none">{!! $post->content !!}</div>
     </div>
 
     <hr class="border-gray-200">

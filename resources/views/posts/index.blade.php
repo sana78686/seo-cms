@@ -11,7 +11,10 @@
 <body class="min-h-screen bg-base-200 p-4 md:p-8">
 
 <div class="max-w-4xl mx-auto">
-    <h1 class="text-2xl font-bold text-gray-900 mb-6">All Posts</h1>
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">All Posts</h1>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">Create post</a>
+    </div>
 
     @if($posts->isEmpty())
         <div class="bg-base-100 rounded-lg shadow p-6 text-center text-gray-500">
@@ -25,9 +28,10 @@
                         <h2 class="text-lg font-semibold text-gray-900 truncate">{{ $post->title ?: 'Untitled' }}</h2>
                         <p class="text-sm text-gray-600 mt-1 line-clamp-2">{{ \Illuminate\Support\Str::limit(strip_tags($post->content ?? ''), 120) }}</p>
                     </div>
-                    <a href="{{ route('seo-test', $post) }}" class="btn btn-primary btn-sm shrink-0">
-                        Edit SEO
-                    </a>
+                    <div class="flex gap-2 shrink-0">
+                        <a href="{{ route('posts.show', $post) }}" class="btn btn-ghost btn-sm">View post</a>
+                        <a href="{{ route('seo-test', $post) }}" class="btn btn-primary btn-sm">Edit SEO</a>
+                    </div>
                 </li>
             @endforeach
         </ul>
