@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Dashboard') – {{ config('app.name') }}</title>
+    <link rel="stylesheet" href="{{ asset('css/dashboard-theme.css') }}">
     @stack('styles')
-    @if (file_exists(public_path('build/manifest.json')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
     @stack('head')
 </head>
 <body class="min-h-screen bg-base-200">
